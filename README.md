@@ -1,13 +1,6 @@
-# Sample Hardhat Project
+# Swappy NFT collection
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+Used on Sepolia to demonstrate the NFT marketplace developped by Airswap
+More info:
+https://www.airswap.io/
+https://marketplace-demo.airswap.eth.limo/
