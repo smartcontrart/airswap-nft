@@ -8,8 +8,8 @@ module.exports = {
         "https://eth-sepolia.g.alchemy.com/v2/" + process.env.ALCHEMY_SEPOLIA,
       chainId: 11155111,
       accounts: [
-        process.env.PRIVATE_KEY !== undefined
-          ? process.env.PRIVATE_KEY
+        process.env.DEPLOYER_PRIVATE_KEY !== undefined
+          ? process.env.DEPLOYER_PRIVATE_KEY
           : "0x1234567890123456789012345678901234567890123456789012345678901234",
       ],
       timeout: 2000000,
