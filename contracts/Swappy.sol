@@ -22,15 +22,15 @@ contract Swappy is ERC721, Ownable {
         tokenId++;
     }
 
-    function batchMint(address[] calldata _to) public onlyOwner {
-        for (uint256 i; i < _to.length; ) {
-            _mint(_to[i], tokenId + i);
-            emit Mint(_to[i], tokenId + i);
+    function batchMint(uint256 _quantity, address _to) public onlyOwner {
+        for (uint256 i; i < _quantity; ) {
+            _mint(_to, tokenId + i);
+            emit Mint(_to, tokenId + i);
             unchecked {
                 ++i;
             }
         }
-        tokenId += _to.length;
+        tokenId += _quantity;
     }
 
     function burn(uint256 _tokenId) public {
@@ -49,6 +49,16 @@ contract Swappy is ERC721, Ownable {
                 ++i;
             }
         }
+    }
+
+    function tokenURI(
+        uint256 _tokenId
+    ) public view virtual override returns (string memory) {
+        _requireOwned(_tokenId);
+        return
+            string(
+                abi.encodePacked(baseURI, Strings.toString(_tokenId), ".json")
+            );
     }
 
     function _baseURI() internal view override returns (string memory) {

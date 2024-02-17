@@ -28,7 +28,7 @@ describe("Swappy Unit", () => {
     it("deployer can set the base URI", async () => {
       await swappy.connect(deployer).mint(anyone);
       await swappy.connect(deployer).setBaseURI("baseURI/");
-      expect(await swappy.tokenURI(0)).to.equal("baseURI/0");
+      expect(await swappy.tokenURI(0)).to.equal("baseURI/0.json");
     });
 
     it("anyone cannot set the base URI", async () => {
@@ -45,7 +45,7 @@ describe("Swappy Unit", () => {
     });
 
     it("deployer can batchMint Swappies", async () => {
-      await swappy.connect(deployer).batchMint([anyone, anyone]);
+      await swappy.connect(deployer).batchMint(2, anyone);
       expect(
         await swappy.connect(anyone).balanceOf(anyone.address)
       ).to.be.equal(2);
@@ -59,7 +59,7 @@ describe("Swappy Unit", () => {
 
     it("anyone cannot batchMint Swappies", async () => {
       await expect(
-        swappy.connect(anyone).batchMint([anyone, anyone])
+        swappy.connect(anyone).batchMint(2, anyone)
       ).to.be.revertedWithCustomError(swappy, "OwnableUnauthorizedAccount");
     });
 
@@ -69,7 +69,7 @@ describe("Swappy Unit", () => {
     });
 
     it("anyone can batchBurn its Swappies", async () => {
-      await swappy.connect(deployer).batchMint([anyone, anyone]);
+      await swappy.connect(deployer).batchMint(2, anyone);
       await swappy.connect(anyone).batchBurn([0, 1]);
       expect(await swappy.connect(anyone).balanceOf(anyone.address)).to.equal(
         0
@@ -80,7 +80,7 @@ describe("Swappy Unit", () => {
       expect(await swappy.tokenId()).to.equal(0);
       await swappy.connect(deployer).mint(anyone);
       expect(await swappy.tokenId()).to.equal(1);
-      await swappy.connect(deployer).batchMint([anyone, anyone]);
+      await swappy.connect(deployer).batchMint(2, anyone);
       expect(await swappy.tokenId()).to.equal(3);
     });
   });

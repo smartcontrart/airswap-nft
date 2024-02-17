@@ -1,0 +1,28 @@
+{
+  "name": "Swappy 20",
+  "description": "Introducing the exclusive AirSwap NFT collectible, a unique NFT collection to showcase our decentralized marketplaces on Sepolia.",
+  "image": "https://arweave.net/Htuq44ZD0Sr3lOv78ZjdCoAj8rCtz2E5R5V1i7SVVxI/20.png",
+  "image_url": "https://arweave.net/Htuq44ZD0Sr3lOv78ZjdCoAj8rCtz2E5R5V1i7SVVxI/20.png",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Neutral"
+    },
+    {
+      "trait_type": "Shirt",
+      "value": "Open shirt"
+    },
+    {
+      "trait_type": "Necklace",
+      "value": "Pearl"
+    },
+    {
+      "trait_type": "Head",
+      "value": "Hat"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    }
+  ]
+}
